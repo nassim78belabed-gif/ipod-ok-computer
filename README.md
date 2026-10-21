@@ -3,9 +3,17 @@
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue)
 ![Platform](https://img.shields.io/badge/platform-ESP32--S3-orange)
 
-Lecteur audio fait maison, style iPod Classic : MP3 sur carte SD, écran couleur 2,4", DAC I2S et 6 boutons.
+Un iPod Classic refait de zéro : lecteur MP3 sur carte SD, écran couleur 2,4", DAC I2S et 6 boutons, pour environ 33 € de composants. Firmware, PCB (2 cartes) et boîtier 3D sont conçus de bout en bout, de la lecture des tags ID3 au transfert de musique par WiFi.
 
-> Projet repris de zéro en septembre 2026 avec un nouveau brochage (firmware fonctionnel sur breadboard depuis fin septembre). L'ancienne version (Cover Flow, TFT_eSPI, ancien câblage) reste dans l'historique git, commit `50034ca`.
+> Projet repris de zéro en septembre 2026 avec un nouveau brochage (firmware fonctionnel sur breadboard depuis fin septembre).
+
+## Ce que j'ai fait
+
+- **Firmware** en C++ (Arduino / ESP32) : navigation Artistes / Albums / Morceaux, lecture MP3 en I2S, pochettes, lecture des tags ID3.
+- **Transfert de musique par WiFi** depuis un téléphone ou un PC, avec rangement automatique d'après les tags.
+- **PCB** en deux cartes, générées par script, avec leurs fichiers de fabrication.
+- **Boîtier** en deux coques, généré en CadQuery à partir des cotes des PCB.
+- **Easter eggs** par album (thèmes, messages, code secret aux boutons).
 
 ## Matériel
 
@@ -16,11 +24,11 @@ Lecteur audio fait maison, style iPod Classic : MP3 sur carte SD, écran couleur
 | Audio | DAC I2S PCM5102A (module **CJMCU-5102**, 11 broches), sortie jack LINE OUT |
 | Commandes | 6 boutons poussoirs vers GND (pull-up interne) |
 
-## Coût estimé
+## Coût
 
-Prix **estimés** (AliExpress / Amazon, à ajuster avec les vrais prix payés).
+Prix indicatifs (AliExpress / Amazon).
 
-| Composant | Prix estimé |
+| Composant | Prix |
 |---|---|
 | ESP32-S3-DevKitC-1 N16R8 | ~8 € |
 | Écran ILI9341 2,4" avec lecteur SD | ~8 € |
@@ -32,7 +40,7 @@ Prix **estimés** (AliExpress / Amazon, à ajuster avec les vrais prix payés).
 
 Version finale V1, portable sur batterie :
 
-| Composant | Prix estimé |
+| Composant | Prix |
 |---|---|
 | ESP32, écran, DAC, microSD, boutons (voir ci-dessus) | ~28 € |
 | Batterie LiPo YL 603450 (3,7 V, 1200 mAh, protégée) | ~8 € |
@@ -42,18 +50,27 @@ Version finale V1, portable sur batterie :
 | Boîtier imprimé en 3D | ~15 € |
 | **Total version portable V1** | **~65 €** |
 
-La V2 (molette cliquable iPod 4G à la place des boutons) ajoute le prix de la molette : ~10 à 15 € d'occasion (estimation).
+La V2 (molette cliquable iPod 4G à la place des boutons) ajoute le prix de la molette : ~10 à 15 € d'occasion.
 
 ## Fonctionnalités
 
 Validées sur breadboard (firmware `firmware/ipod/`) :
 - **Menus** Artistes / Albums / Morceaux, écran **Lecture en cours** (pochette, progression, volume), enchaînement des morceaux, pause, précédent / suivant, avance rapide.
 - **Pochettes** : image intégrée au MP3, `/covers/<album>.jpg|.bmp`, `cover.jpg` / `folder.jpg` du dossier ; les JPG sont redimensionnés pour remplir le cadre.
-- **Transfert MP3 par WiFi** : menu « Transfert MP3 », envoi de plusieurs MP3 d'un coup depuis un téléphone ou un PC, rangement automatique dans `/Music/<artiste>/<album>/` d'après les tags. Le WiFi n'est allumé que dans ce menu (sur breadboard, il fait des bips dans le son).
-- **Easter eggs par album** : thème de couleurs, messages sur certaines pistes (fixes, défilants, « glitch ») et code secret aux boutons, décrits dans un fichier `easter.txt` par album (voir `easter/` pour les modèles).
+- **Transfert MP3 par WiFi** : menu « Transfert MP3 », envoi de plusieurs MP3 d'un coup depuis un téléphone ou un PC, rangement automatique dans `/Music/<artiste>/<album>/` d'après les tags. Le WiFi n'est allumé que dans ce menu.
+- **Easter eggs par album** : thème de couleurs, messages sur certaines pistes (fixes, défilants, « glitch ») et code secret aux boutons, décrits dans un fichier `easter.txt` par album (voir le dossier `easter/`).
 - **Commandes série** : mêmes actions que les boutons (`m p < > + -`) et maintenance de la SD (liste, suppression, diagnostic des tags), via `outils/serie.py`.
 
 Volume limité à 19/21 (au-delà, la sortie du DAC sature) ; départ à 16.
+
+## Difficultés rencontrées
+
+- **Écran et SD sur le même bus SPI.** L'ILI9341 ne libère pas sa broche SDO et bloquait la SD. Solution : le MISO de l'écran n'est pas câblé, et le firmware relâche toujours un CS avant d'activer l'autre.
+- **Broches interdites.** Avec la PSRAM octal du N16R8, les GPIO 26 à 37 sont réservés : le brochage a dû être refait autour de cette contrainte.
+- **Crash de la bibliothèque audio.** Certains MP3 provoquaient une division par zéro dans ESP32-audioI2S. J'ai corrigé la bibliothèque et gardé une copie patchée dans le dépôt (voir `LISEZMOI.md` du dossier).
+- **WiFi et audio.** Le WiFi perturbait le son, donc il n'est allumé que dans le menu de transfert.
+- **Saturation du DAC.** Au-delà de 19/21, la sortie sature : le volume est plafonné.
+- **Passage au PCB.** Les cartes sont générées par script plutôt que dessinées à la main, ce qui permet de modifier le brochage et de régénérer tout le routage d'un coup.
 
 ## Brochage
 
@@ -67,19 +84,16 @@ Volume limité à 19/21 (au-delà, la sortie du DAC sature) ; départ à 16.
 
 Rétroéclairage de l'écran sur 3V3 direct. Détails et contraintes : [hardware/wiring.md](hardware/wiring.md).
 
-Points importants :
-- **Le MISO de l'écran n'est pas câblé** : l'ILI9341 ne libère pas SDO et bloquerait la SD.
-- **Bus SPI partagé** : toujours relâcher un CS avant d'activer l'autre.
-- GPIO 26 à 37 interdits (PSRAM octal).
-
 ## PCB et boîtier
 
 - **PCB v_final1** ([hardware/pcb_v_final1](hardware/pcb_v_final1/LISEZ-MOI.md)) : 2 cartes reliées par câble.
   - Carte logique (77 x 95 mm) : ESP32-S3 DevKit + PCM5102A + connecteurs vers l'écran, la SD et la façade boutons.
   - Carte façade (42,6 x 72,2 mm) : les 6 boutons en grille 2x3.
   - Le module écran ILI9341+SD reste externe, câblé à la carte logique.
-  - Pas de schéma KiCad : les cartes ont été générées directement en PCB par script (`generateur/`). [CONNEXIONS.md](hardware/pcb_v_final1/CONNEXIONS.md) liste toutes les connexions et tient lieu de schéma.
-- **Boîtier v1** ([hardware/boitier_v1](hardware/boitier_v1/LISEZ-MOI.md)) : 2 coques (avant + arrière), 83 x 131 x 27 mm, générées en CadQuery à partir des cotes des PCB. **Provisoire** : plusieurs cotes (écran, hauteurs, découpes USB-C et jack) sont estimées et à mesurer avant impression.
+  - Les cartes sont générées par script (`generateur/`) et les fichiers KiCad du PCB sont dans `kicad/`. [CONNEXIONS.md](hardware/pcb_v_final1/CONNEXIONS.md) liste toutes les connexions et tient lieu de schéma.
+- **Boîtier v1** ([hardware/boitier_v1](hardware/boitier_v1/LISEZ-MOI.md)) : 2 coques (avant + arrière), 83 x 131 x 27 mm, générées en CadQuery à partir des cotes des PCB. **Provisoire** : plus large que le PCB pour laisser place à un écran et à des accessoires.
+
+![Boîtier](hardware/boitier_v1/preview_iso.png)
 
 ## Avancement
 
@@ -105,7 +119,7 @@ Tests faits sur breadboard uniquement : le PCB n'est pas encore fabriqué.
 
 Outils : Arduino IDE 2 ou [arduino-cli](https://arduino.github.io/arduino-cli/), core **esp32 by Espressif 3.x**.
 
-Bibliothèques : **Adafruit ILI9341** (+ Adafruit GFX, Adafruit BusIO), **TJpg_Decoder** (pochettes JPG). Audio : **ESP32-audioI2S** (schreibfaux) 4.0.0, **copie patchée incluse dans le dépôt** (`firmware/ipod/src/ESP32-audioI2S/`, correctif d'une division par zéro sur certains MP3, voir son `LISEZMOI.md`) : rien à installer pour le firmware principal.
+Bibliothèques : **Adafruit ILI9341** (+ Adafruit GFX, Adafruit BusIO), **TJpg_Decoder** (pochettes JPG). Audio : **ESP32-audioI2S** (schreibfaul1) 4.0.0, **copie patchée incluse dans le dépôt** (`firmware/ipod/src/ESP32-audioI2S/`, correctif d'une division par zéro sur certains MP3, voir son `LISEZMOI.md`) : rien à installer pour le firmware principal.
 
 Réglages de la carte :
 
@@ -161,15 +175,15 @@ Pour de bons fichiers : albums achetés sans DRM (Bandcamp, Qobuz, 7digital) ou 
 ## Structure du dépôt
 
 ```
-iPod-ESP32-S3/
+ipod-ok-computer/
 ├── firmware/
 │   ├── ipod/          # Firmware principal
 │   └── tests/         # Sketches de test (un dossier par sketch)
-├── easter/            # Modèles de fichiers easter.txt (un par album)
+├── easter/            # Modèles de fichiers easter.txt (un par album) + aperçus
 ├── outils/            # Scripts : commandes série, encodage de CD, journal série
 ├── hardware/
 │   ├── wiring.md      # Brochage et contraintes
-│   ├── pcb_v_final1/  # PCB actuel : carte logique + carte boutons (KiCad, gerbers, STEP, générateurs)
+│   ├── pcb_v_final1/  # PCB actuel : carte logique + carte boutons (KiCad, gerbers, générateurs)
 │   │   └── CONNEXIONS.md  # Liste des connexions (tient lieu de schéma)
 │   ├── boitier_v1/    # Boîtier provisoire (STEP/STL, script CadQuery gen_case.py)
 │   └── archives/      # Anciennes versions (v7, v8, breakout clickwheel), référence uniquement
@@ -178,4 +192,6 @@ iPod-ESP32-S3/
 
 ## Licence
 
-GPL-3.0, voir [LICENSE](LICENSE).
+Le projet est sous licence **GPL-3.0**, voir [LICENSE](LICENSE).
+
+Le dossier `firmware/ipod/src/ESP32-audioI2S/` est une copie patchée de la bibliothèque [ESP32-audioI2S](https://github.com/schreibfaul1/ESP32-audioI2S) (schreibfaul1), également sous **GPL-3.0** : sa licence d'origine est conservée dans ce dossier. Le projet entier est donc publié sous GPL-3.0.
