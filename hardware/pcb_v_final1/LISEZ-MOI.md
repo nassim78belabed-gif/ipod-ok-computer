@@ -1,4 +1,4 @@
-# iPod OK Computer — version finale 1 (multi-cartes pour boîtier imprimé 3D)
+# iPod OK Computer : version finale 1 (multi-cartes pour boîtier imprimé 3D)
 
 Découpage en 2 cartes reliées par câble, pensé pour un boîtier imprimé en 3D style iPod Classic (écran en haut, boutons en bas). L'écran ILI9341+SD reste un module externe (pas de carte custom pour lui), câblé directement à la carte logique.
 
@@ -12,14 +12,14 @@ Découpage en 2 cartes reliées par câble, pensé pour un boîtier imprimé en 
 
 ## Liaisons entre cartes
 
-Rien d'imposé côté connecteur — les headers sont en 2,54 mm, tu peux souder un JST-PH ou XH à la place si tu veux du câblage propre et démontable. Pas de signal rapide ni sensible dans ces liaisons (juste des boutons vers GND), donc pas de contrainte de longueur de câble particulière.
+Rien d'imposé côté connecteur : les headers sont en 2,54 mm, tu peux souder un JST-PH ou XH à la place si tu veux du câblage propre et démontable. Pas de signal rapide ni sensible dans ces liaisons (juste des boutons vers GND), donc pas de contrainte de longueur de câble particulière.
 
 ## Fichiers 3D pour Fusion 360 / SolidWorks
 
 - `logic/logic_v_final1.step`
 - `buttons/buttons_v_final1.step`
 
-Ce sont les step du PCB (contour + trous de fixation + épaisseur de carte). Les connecteurs/boutons n'ont pas de modèle 3D dans ces STEP (footprints KiCad standards sans modèle 3D associé) — seule la plaque de PCB avec ses trous est représentée, mais c'est largement suffisant pour caler les découpes et les vis de fixation dans ton boîtier.
+Ce sont les step du PCB (contour + trous de fixation + épaisseur de carte). Les connecteurs/boutons n'ont pas de modèle 3D dans ces STEP (footprints KiCad standards sans modèle 3D associé) : seule la plaque de PCB avec ses trous est représentée, mais c'est largement suffisant pour caler les découpes et les vis de fixation dans ton boîtier.
 
 ## État du routage
 

@@ -1,8 +1,8 @@
-# Boîtier iPod OK Computer — v1 (PROVISOIRE)
+# Boîtier iPod OK Computer : v1 (PROVISOIRE)
 
 Premier jet de boîtier 2 coquilles (avant + arrière), style iPod Classic (écran en haut, boutons en bas), généré en paramétrique (CadQuery) directement à partir des **vraies dimensions et positions de trous des 2 PCB v_final1** (extraites des fichiers KiCad, pas devinées).
 
-**Ce boîtier n'est pas prêt à imprimer tel quel** — il pose une base correcte niveau agencement/vis, mais plusieurs cotes sont estimées faute de mesures réelles de tes modules. Vérifie/corrige avant impression (détail plus bas).
+**Ce boîtier n'est pas prêt à imprimer tel quel** : il pose une base correcte niveau agencement/vis, mais plusieurs cotes sont estimées faute de mesures réelles de tes modules. Vérifie/corrige avant impression (détail plus bas).
 
 ## Dimensions externes
 
@@ -19,8 +19,8 @@ Premier jet de boîtier 2 coquilles (avant + arrière), style iPod Classic (écr
 - **Taille du module écran** : 77 x 43mm supposé (jamais mesuré sur ton module réel) → `SCREEN_MOD_W/H` dans `gen_case.py`
 - **Zone visible de l'écran** (fenêtre découpée) : 48,6 x 37,4mm, cote datasheet ILI9341 2,4" générique → `SCREEN_VIEW_W/H`
 - **Profondeur du boîtier** (27mm) : suppose ~14mm pour la carte logique + le DevKit ESP32 embroché dessus + ~9mm pour la carte façade + module écran. Pas mesuré, juste une estimation raisonnable.
-- **Position de la découpe USB-C** (accès au port du DevKit pour prog/charge) et **découpe jack 3,5mm** (sortie du DAC) : placées à des positions arbitraires sur le côté droit de la coque arrière — à repositionner selon l'orientation réelle que tu donnes au DevKit et au module DAC une fois câblés
-- **Diamètre des trous boutons** (4mm) et **hauteur des plots de la carte façade** (8mm) : dépend du capuchon réel de tes boutons SW_PUSH_6mm (hauteur totale variable 4,3 à 13mm selon le modèle) — à ajuster pour que le bouton dépasse juste ce qu'il faut
+- **Position de la découpe USB-C** (accès au port du DevKit pour prog/charge) et **découpe jack 3,5mm** (sortie du DAC) : placées à des positions arbitraires sur le côté droit de la coque arrière : à repositionner selon l'orientation réelle que tu donnes au DevKit et au module DAC une fois câblés
+- **Diamètre des trous boutons** (4mm) et **hauteur des plots de la carte façade** (8mm) : dépend du capuchon réel de tes boutons SW_PUSH_6mm (hauteur totale variable 4,3 à 13mm selon le modèle) : à ajuster pour que le bouton dépasse juste ce qu'il faut
 
 ## Assemblage prévu
 
@@ -31,11 +31,11 @@ Premier jet de boîtier 2 coquilles (avant + arrière), style iPod Classic (écr
 
 ## Fichiers
 
-- `front_shell.step` / `front_shell.stl` — coque avant (fenêtre écran + trous boutons + plots façade)
-- `back_shell.step` / `back_shell.stl` — coque arrière (plots carte logique + découpes USB/jack)
-- `boitier_assemble_ecarte.step` — les 2 coquilles dans un seul fichier, écartées pour visualiser l'agencement
-- `gen_case.py` — script CadQuery source ; tous les paramètres sont en haut du fichier, modifiables directement (ex: change `SCREEN_MOD_W/H` puis relance `python3 gen_case.py` pour régénérer)
-- `preview_iso.png`, `front_top.png`, `back_top.png` — aperçus
+- `front_shell.step` / `front_shell.stl` : coque avant (fenêtre écran + trous boutons + plots façade)
+- `back_shell.step` / `back_shell.stl` : coque arrière (plots carte logique + découpes USB/jack)
+- `boitier_assemble_ecarte.step` : les 2 coquilles dans un seul fichier, écartées pour visualiser l'agencement
+- `gen_case.py` : script CadQuery source ; tous les paramètres sont en haut du fichier, modifiables directement (ex: change `SCREEN_MOD_W/H` puis relance `python3 gen_case.py` pour régénérer)
+- `preview_iso.png`, `front_top.png`, `back_top.png` : aperçus
 
 ## Pour la suite dans Fusion / SolidWorks
 

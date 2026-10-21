@@ -1,6 +1,6 @@
 # Breakout clickwheel iPod 4G → ESP32
 
-Petit PCB (28 x 31 mm) : connecteur FPC Amphenol **SFV8R-2STE1HLF** (0,5 mm de pas, 8 positions, contact dessus — celui qui reçoit la nappe du clickwheel) câblé vers un header 1x8 en 2,54 mm, facile à brancher sur breadboard ou vers l'ESP32.
+Petit PCB (28 x 31 mm) : connecteur FPC Amphenol **SFV8R-2STE1HLF** (0,5 mm de pas, 8 positions, contact dessus : celui qui reçoit la nappe du clickwheel) câblé vers un header 1x8 en 2,54 mm, facile à brancher sur breadboard ou vers l'ESP32.
 
 ## Pinout du header J2 (de gauche à droite)
 

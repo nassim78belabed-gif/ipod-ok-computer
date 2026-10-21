@@ -1,4 +1,4 @@
-# iPod OK Computer — v7 (test SD)
+# iPod OK Computer : v7 (test SD)
 
 Carte de test pour ESP32-S3-DevKitC-1 N16R8 : écran ILI9341 + SD (slot de l'écran, bus SPI partagé) + DAC PCM5102A + boutons/molette + LiPo/TP4056/MT3608.
 

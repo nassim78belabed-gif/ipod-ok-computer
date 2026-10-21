@@ -1,4 +1,4 @@
-# Câblage — iPod OK Computer Edition
+# Câblage : iPod OK Computer Edition
 
 ## Matériel
 
@@ -18,7 +18,7 @@
 | TFT CS | 11 | |
 | TFT DC | 9 | |
 | TFT RST | 10 | |
-| TFT LED | — | rétroéclairage sur 3V3 direct (pas de PWM) |
+| TFT LED | - | rétroéclairage sur 3V3 direct (pas de PWM) |
 | I2S BCK | 7 | PCM5102A |
 | I2S DIN | 6 | PCM5102A |
 | I2S LRCK | 5 | PCM5102A |

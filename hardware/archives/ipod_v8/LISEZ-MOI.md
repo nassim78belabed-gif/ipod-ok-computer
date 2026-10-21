@@ -1,4 +1,4 @@
-# iPod OK Computer — v8 mini (sans batterie / sans molette), double face
+# iPod OK Computer : v8 mini (sans batterie / sans molette), double face
 
 Version allégée du PCB : uniquement les composants que tu as (ESP32-S3, écran ILI9341 + SD, DAC PCM5102A, boutons). Pas de batterie, pas de charge, pas de boost, pas de molette.
 

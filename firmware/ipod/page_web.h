@@ -106,7 +106,7 @@ function afficherEtat(e){
   $('bpause').innerHTML = (e.titre && !e.pause) ? '&#9208;' : '&#9654;';
   if (!e.titre){ return; }
   $('titre').textContent = e.titre;
-  $('sous').textContent = e.artiste + ' — ' + e.album;
+  $('sous').textContent = e.artiste + ' : ' + e.album;
   $('rang').textContent = e.rang + ' sur ' + e.total;
   $('prog').style.width = (e.duree ? e.pos/e.duree*100 : 0) + '%';
   $('ecoule').textContent = minSec(e.pos);

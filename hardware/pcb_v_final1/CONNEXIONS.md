@@ -1,4 +1,4 @@
-# Connexions — PCB v_final1
+# Connexions : PCB v_final1
 
 Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes ont été générées directement en PCB par script (`generateur/pcbgen.py`). Cette liste, extraite des fichiers `.kicad_pcb` livrés, fait office de schéma.
 
@@ -6,75 +6,75 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 ## Carte LOGIQUE
 
 
-**C3** — 10uF
+**C3** : 10uF
 
 | Broche | Net |
 |---|---|
 | 1 | 3V3 |
 | 2 | GND |
 
-**C4** — 100nF
+**C4** : 100nF
 
 | Broche | Net |
 |---|---|
 | 1 | 3V3 |
 | 2 | GND |
 
-**J1** — ESP32-S3 J1 (gauche)
+**J1** : ESP32-S3 J1 (gauche)
 
 | Broche | Net |
 |---|---|
 | 1 | 3V3 |
 | 2 | 3V3 |
-| 3 | — |
-| 4 | — |
+| 3 | - |
+| 4 | - |
 | 5 | I2S_LRCK |
 | 6 | I2S_DIN |
 | 7 | I2S_BCK |
-| 8 | — |
+| 8 | - |
 | 9 | SD_CS |
 | 10 | SPI_MOSI |
 | 11 | SPI_MISO |
 | 12 | SPI_SCK |
-| 13 | — |
-| 14 | — |
+| 13 | - |
+| 14 | - |
 | 15 | TFT_DC |
 | 16 | TFT_RST |
 | 17 | TFT_CS |
-| 18 | — |
-| 19 | — |
-| 20 | — |
+| 18 | - |
+| 19 | - |
+| 20 | - |
 | 21 | 5V |
 | 22 | GND |
 
-**J3** — ESP32-S3 J3 (droite)
+**J3** : ESP32-S3 J3 (droite)
 
 | Broche | Net |
 |---|---|
 | 1 | GND |
-| 2 | — |
-| 3 | — |
+| 2 | - |
+| 3 | - |
 | 4 | BTN_VOLDOWN |
-| 5 | — |
+| 5 | - |
 | 6 | BTN_MENU |
 | 7 | BTN_PLAY |
 | 8 | BTN_PREV |
 | 9 | BTN_NEXT |
 | 10 | BTN_VOLUP |
-| 11 | — |
-| 12 | — |
-| 13 | — |
-| 14 | — |
-| 15 | — |
-| 16 | — |
-| 17 | — |
-| 18 | — |
-| 19 | — |
-| 20 | — |
+| 11 | - |
+| 12 | - |
+| 13 | - |
+| 14 | - |
+| 15 | - |
+| 16 | - |
+| 17 | - |
+| 18 | - |
+| 19 | - |
+| 20 | - |
 | 21 | GND |
 | 22 | GND |
 
-**J4** — VERS ECRAN: VCC GND CS RST DC MOSI SCK LED
+**J4** : VERS ECRAN: VCC GND CS RST DC MOSI SCK LED
 
 | Broche | Net |
 |---|---|
@@ -87,7 +87,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 7 | SPI_SCK |
 | 8 | 3V3 |
 
-**J5** — VERS SD ecran
+**J5** : VERS SD ecran
 
 | Broche | Net |
 |---|---|
@@ -96,7 +96,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 3 | SPI_MISO |
 | 4 | SPI_SCK |
 
-**J6** — PCM5102A: SCK BCK DIN LCK GND VIN
+**J6** : PCM5102A: SCK BCK DIN LCK GND VIN
 
 | Broche | Net |
 |---|---|
@@ -107,7 +107,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 5 | GND |
 | 6 | 3V3 |
 
-**J7** — VERS FACADE: MENU PLAY PREV NEXT VOL+ VOL- GND
+**J7** : VERS FACADE: MENU PLAY PREV NEXT VOL+ VOL- GND
 
 | Broche | Net |
 |---|---|
@@ -146,7 +146,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 ## Carte FAÇADE BOUTONS
 
 
-**J_LINK** — VERS CARTE LOGIQUE
+**J_LINK** : VERS CARTE LOGIQUE
 
 | Broche | Net |
 |---|---|
@@ -158,7 +158,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 6 | BTN_VOLDOWN |
 | 7 | GND |
 
-**SW1** — MENU
+**SW1** : MENU
 
 | Broche | Net |
 |---|---|
@@ -167,7 +167,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 2 | GND |
 | 2 | GND |
 
-**SW2** — PLAY
+**SW2** : PLAY
 
 | Broche | Net |
 |---|---|
@@ -176,7 +176,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 2 | GND |
 | 2 | GND |
 
-**SW3** — PREV
+**SW3** : PREV
 
 | Broche | Net |
 |---|---|
@@ -185,7 +185,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 2 | GND |
 | 2 | GND |
 
-**SW4** — NEXT
+**SW4** : NEXT
 
 | Broche | Net |
 |---|---|
@@ -194,7 +194,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 2 | GND |
 | 2 | GND |
 
-**SW5** — VOL+
+**SW5** : VOL+
 
 | Broche | Net |
 |---|---|
@@ -203,7 +203,7 @@ Il n'y a pas de schéma KiCad (.kicad_sch) pour la v_final1 : les deux cartes on
 | 2 | GND |
 | 2 | GND |
 
-**SW6** — VOL-
+**SW6** : VOL-
 
 | Broche | Net |
 |---|---|
