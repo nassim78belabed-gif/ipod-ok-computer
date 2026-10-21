@@ -1,0 +1,20 @@
+# Linkin Park - From Zero : faits verifies (MusicBrainz), un effet par piste
+fond=111111
+texte=F2F2F2
+gris=9A9A9A
+accent=FF7A00
+banniere=FROM ZERO
+lancement=xero
+piste=1 texte PISTE 1/11 - 0:22
+piste=2 defile THE EMPTINESS MACHINE - LINKIN PARK - FROM ZERO (2024) - 3:10     
+piste=3 texte PISTE 3/11 - 3:49
+piste=4 defile HEAVY IS THE CROWN - LINKIN PARK - FROM ZERO (2024) - 2:47     
+piste=5 texte PISTE 5/11 - 2:50
+piste=6 defile CASUALTY - LINKIN PARK - FROM ZERO (2024) - 2:21     
+piste=7 texte PISTE 7/11 - 3:31
+piste=8 defile TWO FACED - LINKIN PARK - FROM ZERO (2024) - 3:04     
+piste=9 texte PISTE 9/11 - 3:05
+piste=10 defile IGYEIH - LINKIN PARK - FROM ZERO (2024) - 3:29     
+piste=11 texte PISTE 11/11 - 3:32
+code=+-+-++ FROM ZERO/LINKIN PARK/15 NOVEMBRE 2024/WARNER RECORDS
+code=++--+- DUREE TOTALE/32 MIN 1 S/11 TITRES

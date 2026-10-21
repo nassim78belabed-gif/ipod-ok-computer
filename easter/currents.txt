@@ -1,0 +1,27 @@
+# Tame Impala - Currents : faits verifies (MusicBrainz), un effet par piste
+fond=1A0B2E
+texte=F6E9FF
+gris=A88BC8
+accent=FF4FD8
+banniere=CURRENTS
+fondanime=courants
+rayure=1 215.9-216.8
+rayure=1 222.1-222.8
+rayure=1 229.3-244.0
+rayure=1 273.5-290.0
+rayure=1 461.6-467.6
+piste=1 texte PISTE 1/13 - 7:47
+piste=2 defile NANGS - TAME IMPALA - CURRENTS (2015) - 1:48     
+piste=3 texte PISTE 3/13 - 4:15
+piste=4 defile YES I'M CHANGING - TAME IMPALA - CURRENTS (2015) - 4:31     
+piste=5 texte PISTE 5/13 - 5:19
+piste=6 defile GOSSIP - TAME IMPALA - CURRENTS (2015) - 0:55     
+piste=7 texte PISTE 7/13 - 3:39
+piste=8 defile PAST LIFE - TAME IMPALA - CURRENTS (2015) - 3:48     
+piste=9 texte PISTE 9/13 - 1:48
+piste=10 defile CAUSE I'M A MAN - TAME IMPALA - CURRENTS (2015) - 4:02     
+piste=11 texte PISTE 11/13 - 4:13
+piste=12 defile LOVE/PARANOIA - TAME IMPALA - CURRENTS (2015) - 3:06     
+piste=13 texte PISTE 13/13 - 6:02
+code=+-+-++ CURRENTS/TAME IMPALA/17 JUILLET 2015/13 TITRES
+code=++--+- DUREE TOTALE/51 MIN 14 S/LABEL : FICTION
